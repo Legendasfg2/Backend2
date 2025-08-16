@@ -1,3 +1,0 @@
-echo "# Backend 2 project" > Readme.md
-git add Readme.md
-git commit -m "initial commit"
