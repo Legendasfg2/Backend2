@@ -44,13 +44,15 @@ for ch in int_part:
         value = value * 10 + (ord(ch) - ord("0"))
 
 # дробная часть
-frac_value = 0
-power = 1
+frac_value: float = 0.0
+power: float = 1.0
+
 for ch in frac_part:
     power *= 10
     frac_value += (ord(ch) - ord("0")) / power
 
 result = sign * (value + frac_value)
+
 
 # умножаем на 2
 result *= 2
