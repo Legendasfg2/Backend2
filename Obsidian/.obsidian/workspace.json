@@ -11,10 +11,14 @@
             "id": "5d80248da72a4260",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Граф"
+              "type": "markdown",
+              "state": {
+                "file": "git add ..md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "git add ."
             }
           }
         ]
@@ -165,12 +169,12 @@
   "active": "5d80248da72a4260",
   "lastOpenFiles": [
     "gcc.md",
+    "C язык.md",
+    "Начало School21.md",
     "git add ..md",
     "Git Bash.md",
-    "Начало School21.md",
     "clang-format.md",
     "Touch main.c.md",
-    "C язык.md",
     "GitHub и Git Clone.md",
     "Git clone.md",
     "It.md",
