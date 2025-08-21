@@ -5,10 +5,12 @@ import time
 
 print(">>> Программа запущена")
 
+
 class Student:
     def __init__(self, name):
         self.name = name
         self.grade = None
+
 
 class Examiner(threading.Thread):
     def __init__(self, name, students_queue, questions):
@@ -31,6 +33,7 @@ class Examiner(threading.Thread):
             print(f"{self.name} поставил {student.name} оценку {grade}")
             self.students_queue.task_done()
 
+
 def main():
     students = [Student(n) for n in ["Alex", "Maria", "Oleg", "Sasha"]]
     examiners = ["Ivanov", "Petrova"]
@@ -50,6 +53,7 @@ def main():
     print("\nЭкзамен завершён!")
     for s in students:
         print(f"{s.name}: {s.grade}")
+
 
 if __name__ == "__main__":
     main()
