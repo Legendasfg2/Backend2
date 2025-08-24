@@ -1,10 +1,21 @@
-accounts = {"Натан": 1000}
+import json
+import os
 
+DATA_FILE = "accounts.json"
+
+# Загружаем данные
+if os.path.exists(DATA_FILE):
+    with open(DATA_FILE, "r", encoding="utf-8") as f:
+        accounts = json.load(f)
+else:
+    accounts = {}  # пустая база, без Натана и Вики
+
+def save_accounts():
+    with open(DATA_FILE, "w", encoding="utf-8") as f:
+        json.dump(accounts, f, ensure_ascii=False, indent=4)
 
 def parse_amount(text):
-    """Преобразует строку с суммой в число (удаляет пробелы и запятые)."""
     return int(text.replace(" ", "").replace(",", ""))
-
 
 def show_menu():
     print("\n--- Мини-банк ---")
@@ -13,10 +24,8 @@ def show_menu():
     print("3. Снять деньги")
     print("4. Выйти")
 
-
 print("Добро пожаловать в мини-банк!")
 
-# Вход или регистрация
 name = input("Введите своё имя: ")
 
 if name not in accounts:
@@ -25,11 +34,11 @@ if name not in accounts:
     if register == "да":
         accounts[name] = 0
         print(f"Пользователь {name} зарегистрирован! Баланс: 0")
+        save_accounts()
     else:
         print("Без регистрации вход невозможен. Выход...")
         exit()
 
-# Главное меню
 while True:
     show_menu()
     choice = input("Выберите пункт меню (1-4): ")
@@ -44,21 +53,24 @@ while True:
             accounts[name] += amount
             print(f"Счёт пополнен на {amount:,}".replace(",", " "))
             print(f"Баланс: {accounts[name]:,}".replace(",", " "))
+            save_accounts()
         else:
             print("Сумма должна быть положительной!")
 
     elif choice == "3":
         raw = input("Введите сумму для снятия: ")
         amount = parse_amount(raw)
-        if amount <= accounts[name]:
+        if amount > 0 and amount <= accounts[name]:
             accounts[name] -= amount
             print(f"Вы сняли {amount:,}".replace(",", " "))
             print(f"Баланс: {accounts[name]:,}".replace(",", " "))
+            save_accounts()
         else:
-            print("Недостаточно средств!")
+            print("Недостаточно средств или сумма некорректная!")
 
     elif choice == "4":
         print("Выход из программы. До свидания!")
+        save_accounts()
         break
 
     else:
