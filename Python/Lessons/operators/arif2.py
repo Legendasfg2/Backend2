@@ -1,5 +1,3 @@
-number = int(input("Введите первое число: "))
-square = number ** 2
-triple = number ** 3
-print("Квадрат числа:", square)
-print("Куб числа:", triple)
+number1 = int(input("Введите первое число: "))
+number2 = int(input("Введите второе число: "))
+print("Остаток:", number1 % number2)
