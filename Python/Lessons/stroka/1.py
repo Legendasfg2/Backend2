@@ -1,0 +1,6 @@
+a = input("Введите строку: ")
+print(a.lower())
+print(a.upper())
+print(a.capitalize())
+print(a.title())
+print(a.lower())
