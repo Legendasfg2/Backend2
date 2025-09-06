@@ -2,7 +2,8 @@ def calculate_bmi(weight_kg, height_cm):
     height_m = height_cm / 100  # переводим см в метры
     if height_m <= 0:
         raise ValueError("Рост должен быть больше нуля.")
-    return weight_kg / (height_m ** 2)
+    return weight_kg / (height_m**2)
+
 
 try:
     weight = float(input("Введите ваш вес (кг): "))

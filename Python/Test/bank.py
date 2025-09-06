@@ -10,12 +10,15 @@ if os.path.exists(DATA_FILE):
 else:
     accounts = {}  # пустая база, без Натана и Вики
 
+
 def save_accounts():
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(accounts, f, ensure_ascii=False, indent=4)
 
+
 def parse_amount(text):
     return int(text.replace(" ", "").replace(",", ""))
+
 
 def show_menu():
     print("\n--- Мини-банк ---")
@@ -23,6 +26,7 @@ def show_menu():
     print("2. Пополнить счёт")
     print("3. Снять деньги")
     print("4. Выйти")
+
 
 print("Добро пожаловать в мини-банк!")
 

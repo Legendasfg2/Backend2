@@ -2,6 +2,7 @@ import time
 import sys
 import msvcrt  # для работы с клавишами на Windows
 
+
 def runner_game():
     print("🏃 Мини-игра 'Бегун'")
     print("Нажимай Enter, чтобы бежать к стене!")
@@ -31,6 +32,7 @@ def runner_game():
         position += 1
 
     print("🏆 Ура! Ты добежал до стены и победил!")
+
 
 if __name__ == "__main__":
     runner_game()

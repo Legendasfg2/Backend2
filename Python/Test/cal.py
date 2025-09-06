@@ -10,23 +10,25 @@ def calculator():
 
     while True:
         # Запрашиваем операцию
-        operation = input("Выберите операцию (+, -, *, /, **) или 'выход' для выхода: ").strip()
+        operation = input(
+            "Выберите операцию (+, -, *, /, **) или 'выход' для выхода: "
+        ).strip()
 
         # Проверяем выход
-        if operation == 'выход':
+        if operation == "выход":
             print("Работа калькулятора завершена.")
             break
 
         # Проверяем, поддерживается ли операция
-        if operation not in ['+', '-', '*', '/', '**']:
+        if operation not in ["+", "-", "*", "/", "**"]:
             print("Ошибка: Неверная операция. Попробуйте снова.\n")
             continue
 
         # Обрабатываем операцию возведения в квадрат
-        if operation == '**':
+        if operation == "**":
             try:
                 num = float(input("Введите число, которое хотите возвести в квадрат: "))
-                result = num ** 2
+                result = num**2
                 print(f"Результат: {num}² = {result}")
             except ValueError:
                 print("Ошибка: Пожалуйста, введите корректное число.\n")
@@ -43,16 +45,16 @@ def calculator():
             continue
 
         # Выполняем операцию
-        if operation == '+':
+        if operation == "+":
             result = num1 + num2
             print(f"Результат: {num1} + {num2} = {result}")
-        elif operation == '-':
+        elif operation == "-":
             result = num1 - num2
             print(f"Результат: {num1} - {num2} = {result}")
-        elif operation == '*':
+        elif operation == "*":
             result = num1 * num2
             print(f"Результат: {num1} * {num2} = {result}")
-        elif operation == '/':
+        elif operation == "/":
             if num2 == 0:
                 print("Ошибка: Деление на ноль невозможно.")
             else:
@@ -60,6 +62,7 @@ def calculator():
                 print(f"Результат: {num1} / {num2} = {result}")
 
         print()  # Пустая строка между операциями
+
 
 # Запуск калькулятора
 if __name__ == "__main__":

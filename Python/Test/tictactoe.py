@@ -11,6 +11,7 @@ board = [["" for _ in range(3)] for _ in range(3)]
 buttons = [[None for _ in range(3)] for _ in range(3)]
 scores = {"Натан": 0, "Миракром": 0}
 
+
 # Проверка победы
 def check_winner():
     for i in range(3):
@@ -24,12 +25,14 @@ def check_winner():
         return board[0][2]
     return None
 
+
 def is_draw():
     for row in board:
         for cell in row:
             if cell == "":
                 return False
     return True
+
 
 # Ход
 def make_move(row, col):
@@ -44,6 +47,7 @@ def make_move(row, col):
         else:
             current_player = "O" if current_player == "X" else "X"
 
+
 # Конец игры
 def end_game(winner):
     global scores
@@ -54,11 +58,14 @@ def end_game(winner):
         messagebox.showinfo("Результат", "Тупи манки всегда проигрывает!!!!")
         scores["Натан"] += 1
     else:
-        messagebox.showinfo("Результат", "Ничья! Но очко всё равно присуждается Натану!")
+        messagebox.showinfo(
+            "Результат", "Ничья! Но очко всё равно присуждается Натану!"
+        )
         scores["Натан"] += 1
 
     update_scoreboard()
     reset_board()
+
 
 # Очистка доски
 def reset_board():
@@ -69,9 +76,13 @@ def reset_board():
         for j in range(3):
             buttons[i][j]["text"] = ""
 
+
 # Обновить счёт
 def update_scoreboard():
-    score_label["text"] = f"Счёт: Натан {scores['Натан']} — Миракром {scores['Миракром']}"
+    score_label["text"] = (
+        f"Счёт: Натан {scores['Натан']} — Миракром {scores['Миракром']}"
+    )
+
 
 # GUI
 root = tk.Tk()
@@ -82,8 +93,9 @@ frame.pack()
 
 for i in range(3):
     for j in range(3):
-        btn = tk.Button(frame, text="", width=10, height=4,
-                        command=lambda r=i, c=j: make_move(r, c))
+        btn = tk.Button(
+            frame, text="", width=10, height=4, command=lambda r=i, c=j: make_move(r, c)
+        )
         btn.grid(row=i, column=j)
         buttons[i][j] = btn
 

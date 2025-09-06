@@ -5,6 +5,7 @@ import pygame
 
 PLAYLIST_FILE = "playlist.json"
 
+
 # Загружаем плейлист
 def load_playlist():
     if os.path.exists(PLAYLIST_FILE):
@@ -12,10 +13,12 @@ def load_playlist():
             return json.load(f)
     return []
 
+
 # Сохраняем плейлист
 def save_playlist(playlist):
     with open(PLAYLIST_FILE, "w", encoding="utf-8") as f:
         json.dump(playlist, f, ensure_ascii=False, indent=4)
+
 
 # Добавление песни
 def add_song():
@@ -32,12 +35,14 @@ def add_song():
     save_playlist(playlist)
     print(f"✅ Песня '{title}' добавлена!")
 
+
 # Запуск песни
 def play_song(song):
     print(f"▶ Сейчас играет: {song['title']} — {song['artist']}")
     pygame.mixer.init()
     pygame.mixer.music.load(song["path"])
     pygame.mixer.music.play()
+
 
 # Плеер с управлением
 def player():
@@ -72,6 +77,7 @@ def player():
         else:
             print("Неизвестная команда!")
 
+
 # Главное меню
 def menu():
     while True:
@@ -90,6 +96,7 @@ def menu():
             break
         else:
             print("Неверный выбор!")
+
 
 playlist = load_playlist()
 menu()
